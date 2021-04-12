@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import {Link} from "react-router-dom";
 import Spinner from "./components/Spinner";
+import Rating from './components/Rating'
 
 const Breeds = () => {
     const [breeds, setBreeds] = useState([])
@@ -45,7 +46,7 @@ const Breeds = () => {
                                    <div className=" bg-gray-400 flex justify-center items-center">
                                        <div
                                            className="flex flex-col justify-between w-72 sm:w-96 h-96 bg-white bg-center text-gray-800 shadow-md overflow-hidden cursor-pointer"
-                                           style={{backgroundImage:`url(${item?.image?.url})`}}>
+                                           style={{background:`url(${item?.image?.url})no-repeat center/contain`}}>
                                            <div className="flex justify-between items-center ml-4 pr-8">
                                                <div
                                                    className="bg-red-600 text-white bg-opacity-95 shadow px-2 py-1 flex items-center font-bold text-xs rounded">Some
@@ -59,7 +60,7 @@ const Breeds = () => {
                                                className="bg-white bg-opacity-95 shadow-md rounded-r-xl p-4 flex flex-col mr-4 mb-8">
                                                <h3 className="text-xl font-bold pb-2">{item.name}</h3>
                                                <p className="truncate text-gray-500 text-sm">{item.description}</p>
-
+                                                <Rating rating={item.healt_issues} color="red" />
                                            </div>
                                        </div>
                                    </div>
